@@ -6,7 +6,7 @@ class CreateProfiles < ActiveRecord::Migration[5.0]
       t.string :phone
       t.string :license_number
       t.string :avatar_picture
-      t.references :user
+      t.references :user, foreign_key: true
 
       t.timestamps
     end

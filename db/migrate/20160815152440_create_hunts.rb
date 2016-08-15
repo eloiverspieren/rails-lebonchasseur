@@ -5,7 +5,7 @@ class CreateHunts < ActiveRecord::Migration[5.0]
       t.string :address
       t.integer :day_price
       t.integer :capacity
-      t.references :user
+      t.references :user, foreign_key: true
 
       t.timestamps
     end
