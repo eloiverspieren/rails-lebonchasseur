@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
 
+  get 'bookings/new'
+
+  get 'bookings/create'
+
+  get 'availabilities/index'
+
+  get 'availabilities/show'
+
+  get 'hunts/index'
+
+  get 'hunts/show'
+
   devise_for :users
   resources :hunts, only: [:index, :show] do
     resources :availabilities, only: [:show]

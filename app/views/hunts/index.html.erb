@@ -1,0 +1,22 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+
+<div class="text-center padded">
+<h1>// All our Hunts \\</h1>
+<div class="row">
+  <div class=" col-sm-4"></div>
+    <div class="col-sm-4 text-center">
+<% @hunts.each do |hunt| %>
+    <br><div class="card">
+    <%= cl_image_tag hunt.photo, width: 400, height: 300, crop: :fill %>
+  <h2><%= hunt.name %></h2>
+  <%= link_to "Find out more about this Hunt Property", "/hunts/#{hunt.id}", :class => "btn btn-success" %>
+  </div>
+<% end %>
+</div>
+</div>
+</div>
+</div>
+
+</div>
