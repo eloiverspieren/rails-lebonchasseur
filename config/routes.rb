@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users
   resources :hunts, only: [:index, :show] do
     resources :availabilities, only: [:show]
@@ -14,6 +15,6 @@ Rails.application.routes.draw do
   end
 
 
-  root to: 'pages#index'
+  root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
