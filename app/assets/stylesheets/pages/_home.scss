@@ -3,3 +3,22 @@
  * (margin/padding adjustments)
  * ------------------------------------- */
 
+.banner {
+ margin-bottom: 20px;
+ text-align: center;
+ height: 100vh;
+ background-size: cover !important;
+ position:relative;
+ }
+
+ .title {
+  position:absolute;
+  text-align:center;
+  color:white;
+  font-weight: bold;
+  top:40vh;
+  left:50vh;
+ }
+ .title h1 {
+  font-size: 60px;
+ }
