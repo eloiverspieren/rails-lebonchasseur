@@ -1,4 +1,4 @@
-class HuntsController < ApplicationController
+class Account::HuntsController < ApplicationController
   def index
     @hunts = current_user.hunts
   end

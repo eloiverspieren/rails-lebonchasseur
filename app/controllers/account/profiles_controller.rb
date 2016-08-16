@@ -1,4 +1,4 @@
-class ProfilesController < ApplicationController
+class Account::ProfilesController < ApplicationController
 
   def show
     @profile = Profile.find(params[:id])

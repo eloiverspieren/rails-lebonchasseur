@@ -1,4 +1,4 @@
-class AvailibilitiesController < ApplicationController
+class Account::AvailibilitiesController < ApplicationController
   def index
     @availibilities = current_user.availibilities
   end
