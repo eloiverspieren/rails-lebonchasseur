@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Hunt.destroy_all
+hunts_attributes = [
+  {
+    name:        "La Canarderie",
+    address: "Merlimont",
+    day_price: "1200euros",
+    capacity: "12 guns"
+  }
+]
+hunts_attributes.each { |params| Hunt.create!(params) }
+
+
