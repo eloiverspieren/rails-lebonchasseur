@@ -12,6 +12,58 @@
      </div>
 </div>
 
+<div class="container text-center features">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <%= image_tag 'travellogo.png' %>
+          <h2>Travel around the world</h2>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <%= image_tag 'meetlogo.png' %>
+          <h2>Meet other hunters</h2>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <%= image_tag 'huntlogo.png' %>
+          <h2>Grow your passion</h2>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <%= image_tag 'naturelogo.png' %>
+          <h2>Enjoy the gifts of mother nature</h2>
+        </div>
+      </div>
+    </div>
+
+<div class="text-center padded">
+<h1> // Our Hunts \\ </h1>
+</div>
+
+
+
+
+<div class="container">
+  <div class="row">
+   <% @hunts.each do |hunt| %>
+    <div class="col-xs-12 col-sm-4">
+      <div class="image">
+        <div class="card-category"><%= hunt.address %></div>
+        <div class="card-description">
+          <h2> <%= hunt.name %></h2>
+          <p>Capacity <%= hunt.capacity %> guns</p>
+          <p>Daily Price <%= hunt.day_price %> €</p>
+        </div>
+        <img src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAleAAAAJGViOWI1MDRiLWNhMWUtNDVhYy1hNzA1LTQxZTEzNjdmMzhhZQ.jpg" alt="user" class="card-user avatar">
+        <%= link_to '', hunt_path(hunt), class: "card-link"  %>
+      </div>
+    </div>
+  <%end%>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
 
 
 
