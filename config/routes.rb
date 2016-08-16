@@ -12,7 +12,8 @@ Rails.application.routes.draw do
 
   get 'hunts/show'
 
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+
   resources :hunts, only: [:index, :show] do
     resources :availabilities, only: [:show]
     resources :bookings, only: [:new, :create]
