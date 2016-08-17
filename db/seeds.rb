@@ -12,7 +12,7 @@ User.destroy_all
 u1 = User.create!(email: "hunter1@gmail.com", password: "villaret")
 u1.hunts.create!(
     name: "La Canarderie",
-    address: "Merlimont",
+    address: "480 bis rue Albert Bailly Marcq en Baroeul",
     day_price: "1200euros",
     capacity: "12 guns",
     description: "La Canarderie is a 120 acres hunting property, gifted with several lakes and forests.
@@ -22,7 +22,7 @@ u1.hunts.create!(
 
 u1.hunts.create!(
     name: "Le Rohan",
-    address: "Morvan",
+    address: "Moulin Enghilbert, France",
     day_price: "6000euros",
     capacity: "15 guns",
     description: "Le Rohan is a large 400 acres hunting property, gifted with several lakes and forests.
@@ -31,8 +31,8 @@ u1.hunts.create!(
     )
 
 u1.hunts.create!(
-    name: "La Bruyère",
-    address: "Le Touquet",
+    name: "La Bruyere",
+    address: "Le Touquet, France",
     day_price: "3000euros",
     capacity: "15 guns",
     description: "La Bruyère is a 200 acres hunting property, gifted with 4 lakes and forests.

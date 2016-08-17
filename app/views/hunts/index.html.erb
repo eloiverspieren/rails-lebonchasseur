@@ -1,7 +1,66 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
-
 <div class="text-center padded">
-<h1>// All our Hunts \\</h1>
+<h1>// Our Catalog \\</h1>
 </div>
+
+
+<div class = "search-a-hunt">
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+    <form action="/hunt" method="get">
+      <input type="text" name="q" value="">
+      <input type="submit" value="search">
+    </form>
+    <br><br><br>
+  </div>
+</div>
+</div>
+
+
+<div class="container_cards">
+  <div class="row">
+   <% @hunts.each do |hunt| %>
+    <div class="col-xs-12 col-sm-4">
+      <div class="image">
+        <div class="card-category"><%= hunt.address %></div>
+        <div class="card-description">
+          <h2> <%= hunt.name %></h2>
+          <p>Capacity <%= hunt.capacity %> guns</p>
+          <p>Daily Price <%= hunt.day_price %> €</p>
+        </div>
+        <img src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAleAAAAJGViOWI1MDRiLWNhMWUtNDVhYy1hNzA1LTQxZTEzNjdmMzhhZQ.jpg" alt="user" class="card-user avatar">
+        <%= link_to '', hunt_path(hunt), class: "card-link"  %>
+      </div>
+    </div>
+  <%end%>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <div class="map" >
+    <div id="map" style="width: 100%; height: 400px;"></div>
+
+    <% content_for(:after_js) do %>
+
+    <%= javascript_tag do %>
+    $(document).on('ready', function() {
+    var handler = Gmaps.build('Google');
+    handler.buildMap( { provider: { scrollwheel: false }, internal: { id: 'map' }, }, function() {
+    markers = handler.addMarkers(<%= raw @hash.to_json %>);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+    if (markers.length == 0) {
+    handler.getMap().setZoom(2);
+  } else if (markers.length == 1) {
+  handler.getMap().setZoom(14);
+}
+});
+});
+<% end %>
+<% end %>
+</div>
+
+
