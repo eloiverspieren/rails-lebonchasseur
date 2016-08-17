@@ -5,14 +5,17 @@
 
 <div class="banner" style="background: url('https://hd.unsplash.com/photo-1430916273432-273c2db881a0');">
   <%= render "shared/navbar" %>
+    <div class="col-xs-12 col-sm-8 col-md-10">
        <div class="title">
          <h1>Time to Hunt</h1>
          <h2>Le plaisir de la chasse à portée de main</h2>
          <br>
      </div>
+    </div>
 </div>
 
-<div class="container text-center features">
+<div class="logos">
+  <div class="container text-center features">
       <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-3">
           <%= image_tag 'travellogo.png' %>
@@ -32,15 +35,10 @@
         </div>
       </div>
     </div>
-
-<div class="text-center padded">
-<h1> // Our Hunts \\ </h1>
-</div>
+  </div>
 
 
-
-
-<div class="container">
+<div class="container_cards">
   <div class="row">
    <% @hunts.each do |hunt| %>
     <div class="col-xs-12 col-sm-4">
