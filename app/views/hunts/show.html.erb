@@ -99,29 +99,21 @@
     <% javascript_tag do %>
     $(document).on('ready', function() {
     var handler = Gmaps.build('Google');
-    handler.buildMap( { provider: { scrollwheel: false }, internal: { id: 'map' }, }, function() {
+    handler.buildMap( { provider: { scrollwheel: true }, internal: { id: 'map' }, }, function() {
     markers = handler.addMarkers(<%= raw @hash.to_json %>);
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();
     if (markers.length == 0) {
-    handler.getMap().setZoom(2);
-  } else if (markers.length == 1) {
-  handler.getMap().setZoom(14);
-}
+      handler.getMap().setZoom(2);
+    } else if (markers.length == 1) {
+      handler.getMap().setZoom(14);
+    }
 });
 });
   <% end %>
   <%end %>
 </div>
 
-<% content_for(:after_js) do %>
-  <%= javascript_tag do %>
-    $(document).ready(function() {
-      var coord = <%= raw @hunt_coordinates.to_json %>;
-      //alert('Hunt coordinates are ' + coord.lat + ', ' + coord.lng);
-    });
-  <% end %>
-<% end %>
 
 
 

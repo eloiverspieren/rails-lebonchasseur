@@ -15,7 +15,7 @@ class HuntsController < ApplicationController
 
     @hunt_coordinates = { lat: @hunt.latitude, lng: @hunt.longitude }
 
-    @hash = Gmaps4rails.build_markers(@hunts) do |hunt, marker|
+    @hash = Gmaps4rails.build_markers(@hunt) do |hunt, marker|
       marker.lat hunt.latitude
       marker.lng hunt.longitude
     end
