@@ -10,6 +10,7 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
   </head>
   <body>
+
       <%= yield %>
     <%= render 'shared/footer' %>
 
@@ -21,5 +22,6 @@
 
 
     <%= yield(:after_js) %>
+
   </body>
 </html>
