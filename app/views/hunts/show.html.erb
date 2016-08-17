@@ -1,14 +1,13 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
-
 <div class="cover-show" style="background: url('https://hd.unsplash.com/reserve/UzWklzFdRBSbkRKhEnvc_1-6128.jpg');">
 </div>
 
 
 <div class = "show-hunt">
   <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-1 ">
+    <div class="col-xs-12 col-sm-5 col-sm-offset-1 ">
       <div class="show-details">
         <div class="main-info">
           <img src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAleAAAAJGViOWI1MDRiLWNhMWUtNDVhYy1hNzA1LTQxZTEzNjdmMzhhZQ.jpg" alt="user" class=" avatar-show">
@@ -17,7 +16,7 @@
         </div>
       </div>
     </div>
-      <div class="col-xs-12 col-sm-4">
+      <div class="col-xs-12 col-sm-5">
         <form action="#">
           <h4>Book this hunting property</h4>
           <div class="form-group">
@@ -37,7 +36,7 @@
                <%end%>
             </select>
           </div>
-          <input type="submit" class="btn btn-danger" value="Book it" style="width: 100%">
+          <input type="submit" class="btn btn-success" value="Book it" style="width: 100%">
         </form>
       </div>
   </div>
@@ -90,5 +89,40 @@
     </div>
   </div>
 </div>
+
+
+<div class="map" >
+  <div id="map" style="width: 100%; height: 300px;"></div>
+
+    <% content_for(:after_js) do %>
+
+    <% javascript_tag do %>
+    $(document).on('ready', function() {
+    var handler = Gmaps.build('Google');
+    handler.buildMap( { provider: { scrollwheel: false }, internal: { id: 'map' }, }, function() {
+    markers = handler.addMarkers(<%= raw @hash.to_json %>);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+    if (markers.length == 0) {
+    handler.getMap().setZoom(2);
+  } else if (markers.length == 1) {
+  handler.getMap().setZoom(14);
+}
+});
+});
+  <% end %>
+  <%end %>
+</div>
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).ready(function() {
+      var coord = <%= raw @hunt_coordinates.to_json %>;
+      //alert('Hunt coordinates are ' + coord.lat + ', ' + coord.lng);
+    });
+  <% end %>
+<% end %>
+
+
 
 

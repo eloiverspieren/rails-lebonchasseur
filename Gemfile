@@ -17,6 +17,7 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'devise'
 gem 'omniauth-facebook'
+gem "geocoder"
 
 group :development, :test do
   gem 'binding_of_caller'
@@ -30,3 +31,9 @@ group :development, :test do
 end
 
 
+gem "coffee-rails"
+gem "gmaps4rails"
+
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
+end

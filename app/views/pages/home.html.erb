@@ -10,6 +10,7 @@
          <h1>Time to Hunt</h1>
          <h2>Le plaisir de la chasse à portée de main</h2>
          <br>
+         <%= link_to "See our catalog", hunts_path, class: "btn btn-success" %>
      </div>
     </div>
 </div>
@@ -40,7 +41,8 @@
 
 <div class="container_cards">
   <div class="row">
-   <% @hunts.each do |hunt| %>
+   <% @sample = @hunts.sample(9) %>
+    <% @sample.each do |hunt| %>
     <div class="col-xs-12 col-sm-4">
       <div class="image">
         <div class="card-category"><%= hunt.address %></div>
@@ -58,7 +60,5 @@
     </div>
   </div>
 </div>
-
-
 
 
