@@ -1,12 +1,18 @@
-<div class="navbar-lebonchasseur-home">
+<div class="navbar-lebonchasseur">
   <!-- Logo -->
     <div id="logo" >
-      <%= link_to 'LeBonChasseur', "http://localhost:3000/" %>
+      <%= link_to 'LeBonChasseur', root_path %>
     </div>
 
     <% if current_user %>
-      <div id="profile" >
-       <%= link_to 'Profile', "http://localhost:3000/" %>
+      <div id="menu-deroulant" >
+        <li><a href="#">Menu</a>
+          <ul>
+             <li><%= link_to 'Hunts', account_hunts_path %></li>
+             <li><%= link_to 'Bookings', account_bookings_path %></li>
+             <li><%= link_to 'Profile', account_profile_path %></li>
+          </ul>
+        </li>
       </div>
       <div id="deconnexion" >
         <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>

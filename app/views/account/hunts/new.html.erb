@@ -1,2 +1,16 @@
-<h1>Hunts#new</h1>
-<p>Find me in app/views/hunts/new.html.erb</p>
+ <div class="background-hunt" style="background: url('http://www.escapeo.fr/wp-content/uploads/2016/05/le-cerf.jpg');">
+  <%= render "shared/navbar_home" %>
+    <div class="new-container-hunt">
+      <div class="relative-hunt">
+        <div class="new-hunt-infos">
+          <%= simple_form_for [:account, @hunt] do |f| %>
+            <%= f.input :name %>
+            <%= f.input :address %>
+            <%= f.input :capacity %>
+            <%= f.input :day_price %>
+            <%= f.submit "Submit", :class => "btn btn-info" %>
+          <% end %>
+      </div>
+    </div>
+</div>
+</div>

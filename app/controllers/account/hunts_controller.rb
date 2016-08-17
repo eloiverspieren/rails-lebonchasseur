@@ -12,10 +12,10 @@ class Account::HuntsController < ApplicationController
   end
 
   def create
-    @hunt = Hunt.new(hunts_params)
+    @hunt = Hunt.new(hunt_params)
     @hunt.user = current_user
     @hunt.save
-    redirect_to hunts_path
+    redirect_to account_hunts_path
   end
 
   def edit
@@ -24,19 +24,19 @@ class Account::HuntsController < ApplicationController
 
   def update
     @hunt = Hunt.find(params[:id])
-    @hunt.update(hunts_params)
-    redirect_to hunts_path(@hunt)
+    @hunt.update(hunt_params)
+    redirect_to account_hunt_path
   end
 
   def destroy
     @hunt = Hunt.find(params[:id])
     @hunt.destroy
-    redirect_to hunts_path
+    redirect_to account_hunts_path
   end
 
   private
 
-  def hunts_params
+  def hunt_params
     params.require(:hunt).permit(:name, :address, :day_price, :capacity)
   end
 end

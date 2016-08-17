@@ -1,0 +1,36 @@
+.background-hunt {
+ height: 100vh;
+ background-size: cover !important;
+ position:relative;
+ }
+
+.relative-hunt {
+  position:relative;
+  ul {
+    text-decoration:none;
+  }
+}
+
+.new-hunt-infos {
+  text-align:left;
+  margin:30px;
+  label {
+    font-weight:normal;
+  }
+}
+
+.new-container-hunt {
+  position:absolute;
+  text-align:center;
+  background-color:rgba(255,255,255,1);
+  color:#636B6C;
+  top: 110px;
+  left: 80px;
+  height: 400px;
+  width: 350px;
+  border-radius: 10px;
+ }
+
+ .buttons-hunt {
+  text-align:center;
+ }

@@ -1,2 +1,23 @@
-<h1>Profiles#show</h1>
-<p>Find me in app/views/profiles/show.html.erb</p>
+
+<div class="background-profile" style="background: url('http://i.huffpost.com/gen/1427163/images/o-HUNTER-facebook.jpg');">
+  <%= render "shared/navbar_home" %>
+    <div class="container-profile">
+      <div class="relative-profile">
+        <div class="avatar-profile">
+        <%= image_tag current_user.facebook_picture_url, height: 130, width: 130 %>
+        </div>
+        <div class="avatar-infos">
+          <ul>
+             <li><p> Name : <%= @profile.name %></p></li>
+             <li><p> Email : <%= @profile.email %></p></li>
+             <li><p> Phone : <%= @profile.phone %></p></li>
+             <li><p> License N° : <%= @profile.license_number %></p></li>
+          </ul>
+        </div><br>
+        <div class="buttons-profile">
+          <%= link_to "Edit", edit_account_profile_path , :class => "btn btn-info" %>
+        </div>
+      </div>
+    </div>
+</div>
+
