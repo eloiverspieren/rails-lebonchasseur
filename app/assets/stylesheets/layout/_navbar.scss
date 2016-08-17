@@ -24,14 +24,33 @@
   width: 100%;
 }
 
-#profile {
+#menu-deroulant {
   position:absolute;
   top:14px;
   right:230px;
+  color:#636B6C;
+  li {
+    text-decoration:none;
+    display: inline-block;
+  }
   a {
     color:#636B6C;
     text-decoration: none;
+    display: block;
   }
+  ul {
+    display:none;
+    text-align: left;
+    position:absolute;
+    right: -23px;
+    }
+  li:hover ul {
+    display:block;
+ }
+}
+
+.css_menu {
+  background-color:rgba(255, 255, 255, 0);
 }
 
 #connexion {
@@ -85,5 +104,7 @@
   top:7px;
   right:50px;
 }
+
+
 
 

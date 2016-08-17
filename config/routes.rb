@@ -1,16 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'bookings/new'
-
-  get 'bookings/create'
-
-  get 'availabilities/index'
-
-  get 'availabilities/show'
-
-  get 'hunts/index'
-
-  get 'hunts/show'
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
@@ -22,8 +11,9 @@ Rails.application.routes.draw do
   namespace :account do
     resources :hunts do
       resources :availibilities
+      resources :reviews
     end
-    resources :profiles
+    resource :profile
     resources :bookings, only: [:index, :show]
   end
 
