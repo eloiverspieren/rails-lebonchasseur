@@ -7,12 +7,14 @@
         <%= image_tag current_user.facebook_picture_url, height: 130, width: 130 %>
         </div>
         <div class="avatar-infos">
-          <ul>
-             <li><p> Name : <%= @profile.name %></p></li>
-             <li><p> Email : <%= @profile.email %></p></li>
-             <li><p> Phone : <%= @profile.phone %></p></li>
-             <li><p> License N° : <%= @profile.license_number %></p></li>
-          </ul>
+          <% if @profile != nil %>
+            <ul>
+               <li><p> Name : <%= @profile.name %></p></li>
+               <li><p> Email : <%= @profile.email %></p></li>
+               <li><p> Phone : <%= @profile.phone %></p></li>
+               <li><p> License N° : <%= @profile.license_number %></p></li>
+            </ul>
+          <%end%>
         </div><br>
         <div class="buttons-profile">
           <%= link_to "Edit", edit_account_profile_path , :class => "btn btn-info" %>

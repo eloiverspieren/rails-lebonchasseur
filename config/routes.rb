@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :hunts, only: [:index, :show] do
     resources :availabilities, only: [:show]
     resources :bookings, only: [:new, :create]
+    resources :reviews, only: [:index, :show, :new, :create, :destroy]
   end
 
   namespace :account do

@@ -1,16 +1,28 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<%= render "shared/navbar_home" %>
 
 <div class="cover-show" style="background: url('https://hd.unsplash.com/reserve/UzWklzFdRBSbkRKhEnvc_1-6128.jpg');">
-</div>
+ </div>
 
 
 <div class = "show-hunt">
   <div class="row">
     <div class="col-xs-12 col-sm-5 col-sm-offset-1 ">
       <div class="show-details">
+        <img src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAleAAAAJGViOWI1MDRiLWNhMWUtNDVhYy1hNzA1LTQxZTEzNjdmMzhhZQ.jpg" alt="user" class=" avatar-show">
         <div class="main-info">
-          <img src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAleAAAAJGViOWI1MDRiLWNhMWUtNDVhYy1hNzA1LTQxZTEzNjdmMzhhZQ.jpg" alt="user" class=" avatar-show">
+          <% i = 0 %>
+          <% ratingtotal = 0 %>
+          <% @hunt.reviews.each do |r| %>
+          <% i += 1 %>
+          <% ratingtotal += r.rating if r.rating != nil %>
+          <% end %>
+          <% i = ratingtotal / i %>
+          <% i.to_i.times do %>
+          <i class="fa fa-star fa-2x" aria-hidden="true"></i>
+          <% end %>
+          <% (5 - i.to_i).times do %>
+          <i class="fa fa-star-o fa-2x" aria-hidden="true"></i>
+          <% end %><br>
           <h1> <%= @hunt.name %> </h1>
           <p>Lovely hunting property in <%= @hunt.address %></p>
         </div>
@@ -36,15 +48,13 @@
                <%end%>
             </select>
           </div>
-          <input type="submit" class="btn btn-success" value="Book it" style="width: 100%">
+          <input type="submit" class="btn btn-primary" value="Book it" style="width: 100%">
         </form>
       </div>
   </div>
 </div>
-<hr>
 
-
- <div id="property-description">
+<div id="property-description">
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-10 col-sm-offset-1">
@@ -85,7 +95,52 @@
           </div>
         </div>
 
-      </div>
+        <% @hunt.reviews.each do |r| %>
+           <hr>
+          <div id="review-hunt">
+            <% if user_signed_in? && current_user.facebook_picture_url %>
+              <div id="avatar_review" >
+                <%= image_tag current_user.facebook_picture_url, height: 40, width: 40 %>
+              </div>
+            <%else%>
+              <div id="avatar_review" >
+                <img src="http://medias.mensquare.com/wp-content/uploads/sites/3/2015/09/10164858/facebook-anonymous-silhouette.png" style="height: 40px; width: 40px;" >
+              </div>
+            <% end %>
+
+            <div id="stars">
+              <% if r.rating != nil %>
+                <% r.rating.times do %>
+                <i class="fa fa-star" aria-hidden="true"></i>
+               <% end %>
+               <% (5 - r.rating).times do %>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+               <% end %>
+               <%end%>
+            </div><br><br><br>
+            <%= r.content %><br><br><br>
+            <div id="delete-review">
+              <% if r.user == current_user && user_signed_in? %>
+              <%= link_to "Delete", hunt_review_path(@hunt, r), method: :delete, data: { confirm: "Are you sure?" }, :class => "btn btn-danger btn-xs" %>
+              <%end%><br>
+            </div>
+          </div>
+        <%end%>
+
+
+        <hr>
+
+        <div id="form-add-review">
+         <% if current_user && user_signed_in? %>
+         <%= simple_form_for @review, url: hunt_reviews_path(@hunt) do |f| %>
+         <%= f.input :rating %>
+         <%= f.input :content %>
+         <%= f.submit "Add a new review", :class => "btn btn-primary" %>
+         <% end %>
+         <%end%>
+       </div>
+
+
     </div>
   </div>
 </div>
@@ -113,8 +168,5 @@
   <% end %>
   <%end %>
 </div>
-
-
-
 
 
