@@ -18,6 +18,8 @@
    <% @hunts.each do |hunt| %>
     <div class="col-xs-12 col-sm-4">
       <div class="image">
+        <%= cl_image_tag( hunt.photo,
+      width: 375, height: 175, crop: :fill, radius: 5) %>
         <div class="card-category"><%= hunt.address %></div>
         <div class="card-description">
           <h2> <%= hunt.name %></h2>

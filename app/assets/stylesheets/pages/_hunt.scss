@@ -1,5 +1,5 @@
 .background-hunt {
- height: 100vh;
+ height: 800px;
  background-size: cover !important;
  position:relative;
  }
@@ -24,12 +24,12 @@
   text-align:center;
   background-color:rgba(255,255,255,1);
   color:#636B6C;
-  top: 110px;
+  top: 60px;
   left: 80px;
-  height: 400px;
-  width: 350px;
+  box-sizing: content-box;
   border-radius: 10px;
  }
+
 
  .buttons-hunt {
   text-align:center;

@@ -1,7 +1,6 @@
 <%= render "shared/navbar_home" %>
 
-<div class="cover-show" style="background: url('https://hd.unsplash.com/reserve/UzWklzFdRBSbkRKhEnvc_1-6128.jpg');">
- </div>
+<%= cl_image_tag( @hunt.photo,width: 1300, height: 400, crop: :fill, radius: 5) %>
 
 
 <div class = "show-hunt">
@@ -16,7 +15,7 @@
           <% i += 1 %>
           <% ratingtotal += r.rating if r.rating != nil %>
           <% end %>
-          <% i = ratingtotal / i %>
+          <% i = ratingtotal / i if i != 0 %>
           <% i.to_i.times do %>
           <i class="fa fa-star fa-2x" aria-hidden="true"></i>
           <% end %>
@@ -154,7 +153,7 @@
     <% javascript_tag do %>
     $(document).on('ready', function() {
     var handler = Gmaps.build('Google');
-    handler.buildMap( { provider: { scrollwheel: true }, internal: { id: 'map' }, }, function() {
+    handler.buildMap( { provider: { scrollwheel: false }, internal: { id: 'map' }, }, function() {
     markers = handler.addMarkers(<%= raw @hash.to_json %>);
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();
