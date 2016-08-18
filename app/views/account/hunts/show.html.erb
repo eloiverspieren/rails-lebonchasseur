@@ -1,8 +1,8 @@
 
 <%= render "shared/navbar_home" %>
 
-<div class="cover-show" style="background: url('https://hd.unsplash.com/reserve/UzWklzFdRBSbkRKhEnvc_1-6128.jpg');">
- </div>
+<%= cl_image_tag( @hunt.photo,
+      width: 1300, height: 400, crop: :fill) %>
 
 
 <div class = "show-hunt">
@@ -17,7 +17,8 @@
       </div>
     </div>
       <div class="col-xs-12 col-sm-5">
-        <%= link_to "Edit", edit_account_hunt_path , :class => "btn btn-primary" %>
+      <br><br><br>
+        <%= link_to "Edit This Hunt", edit_account_hunt_path , :class => "btn btn-danger" %>
       </div>
   </div>
 </div>
@@ -79,7 +80,7 @@
     <% javascript_tag do %>
     $(document).on('ready', function() {
     var handler = Gmaps.build('Google');
-    handler.buildMap( { provider: { scrollwheel: true }, internal: { id: 'map' }, }, function() {
+    handler.buildMap( { provider: { scrollwheel: false }, internal: { id: 'map' }, }, function() {
     markers = handler.addMarkers(<%= raw @hash.to_json %>);
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();

@@ -13,6 +13,7 @@ u1 = User.create!(email: "hunter1@gmail.com", password: "villaret")
 u1.hunts.create!(
     name: "La Canarderie",
     address: "480 bis rue Albert Bailly Marcq en Baroeul",
+    remote_photo_url:    "http://img.fotocommunity.com/la-canarderie-a-beloeil-photo-c1d350ab-a923-4cbd-9d6e-412666202146.jpg?height=1080",
     day_price: "1200euros",
     capacity: "12 guns",
     description: "La Canarderie is a 120 acres hunting property, gifted with several lakes and forests.
@@ -23,6 +24,7 @@ u1.hunts.create!(
 u1.hunts.create!(
     name: "Le Rohan",
     address: "Moulin Enghilbert, France",
+    remote_photo_url:    "http://www.meteocity.com/medias/photos/countries/nz/nz-plaine.jpg",
     day_price: "6000euros",
     capacity: "15 guns",
     description: "Le Rohan is a large 400 acres hunting property, gifted with several lakes and forests.
@@ -33,6 +35,7 @@ u1.hunts.create!(
 u1.hunts.create!(
     name: "La Bruyere",
     address: "Le Touquet, France",
+    remote_photo_url: "https://www.chassons.com/wp-content/uploads//2015/06/daims-prieur%C3%A9B.jpg",
     day_price: "3000euros",
     capacity: "15 guns",
     description: "La Bruyère is a 200 acres hunting property, gifted with 4 lakes and forests.
