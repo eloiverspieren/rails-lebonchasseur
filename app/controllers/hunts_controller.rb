@@ -13,6 +13,8 @@ class HuntsController < ApplicationController
   def show
     @hunt = Hunt.find(params[:id])
 
+    @review = @hunt.reviews.build
+
     @hunt_coordinates = { lat: @hunt.latitude, lng: @hunt.longitude }
 
     @hash = Gmaps4rails.build_markers(@hunt) do |hunt, marker|
