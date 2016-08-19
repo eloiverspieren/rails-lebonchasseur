@@ -30,7 +30,8 @@
       </div>
     </div>
       <div class="col-xs-12 col-sm-5" id="edit-profile">
-        <%= link_to "Edit Hunt infos", edit_account_hunt_path , :class => "btn btn-primary" %>
+        <%= link_to "Edit Hunt infos", edit_account_hunt_path , :class => "btn btn-primary" %><br><br>
+        <%= link_to "Delete this Hunt", account_hunt_path(@hunt), method: :delete, data: { confirm: "Are you sure?" }, :class => "btn btn-danger" %>
       </div>
   </div>
 </div>
