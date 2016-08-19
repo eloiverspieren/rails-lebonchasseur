@@ -5,7 +5,6 @@ Rails.application.routes.draw do
 
   resources :hunts, only: [:index, :show] do
     resources :availabilities, only: [:show]
-    resources :bookings, only: [:new, :create]
     resources :reviews, only: [:index, :show, :new, :create, :destroy]
   end
 
@@ -13,9 +12,10 @@ Rails.application.routes.draw do
     resources :hunts do
       resources :availibilities
       resources :reviews
+      resources :bookings, only: [:index, :create]
     end
     resource :profile
-    resources :bookings, only: [:index, :show]
+    resources :bookings
   end
 
 

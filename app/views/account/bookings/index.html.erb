@@ -1,2 +1,37 @@
-<h1>Bookings#index</h1>
-<p>Find me in app/views/bookings/index.html.erb</p>
+<%= render "shared/navbar_home" %>
+
+
+<% @bookings.each do |booking|%>
+<div class = "show-hunt">
+  <div class="row">
+   <div id="booking">
+    <div class="col-xs-12 col-sm-5 col-sm-offset-1 ">
+      <div id="photo-hunt-booking">
+        <%= cl_image_tag( booking.hunt.photo, width: 375, height: 175, crop: :fill, radius: 5) %>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-5">
+      <div id="infos-booking">
+        <% if booking.hunt.user == current_user %>
+          <h2>Booking Infos</h2>
+          <p> Place : <%= booking.hunt.name %><p>
+          <p> Start Date : <%= booking.start_date %></p>
+          <p> End Date : <%= booking.end_date %></p>
+          <p> Hunter : <%= booking.user.profile.name %></p>
+          <%= link_to "Accept", "", :class => "btn btn-success" %>
+          <%= link_to "Reject", "", :class => "btn btn-danger" %>
+        <%else%>
+         <h2>Booking Infos</h2>
+         <p> Place : <%= booking.hunt.name %> <p>
+         <p> Start Date : <%= booking.start_date %></p>
+         <p> End Date : <%= booking.end_date %></p>
+         <p> Price per day : <%= booking.hunt.day_price %> euros</p>
+          <%= link_to "Not accepted yet", "", :class => "btn btn-danger" %>
+        <%end%>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+<%end%>
+

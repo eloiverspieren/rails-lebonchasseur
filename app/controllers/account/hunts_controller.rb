@@ -1,7 +1,6 @@
 class Account::HuntsController < ApplicationController
   def index
-    @hunts = current_user.hunts
-    @hunts = Hunt.where.not(latitude: nil, longitude: nil)
+    @hunts = current_user.hunts.where.not(latitude: nil, longitude: nil)
 
     @hash = Gmaps4rails.build_markers(@hunts) do |hunt, marker|
       marker.lat hunt.latitude
@@ -11,6 +10,7 @@ class Account::HuntsController < ApplicationController
 
   def show
     @hunt = Hunt.find(params[:id])
+
     @hunt_coordinates = { lat: @hunt.latitude, lng: @hunt.longitude }
 
     @hash = Gmaps4rails.build_markers(@hunt) do |hunt, marker|

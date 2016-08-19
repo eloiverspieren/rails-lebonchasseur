@@ -1,0 +1,25 @@
+#infos-booking {
+  margin-left: 135px;
+  margin-bottom: 15px;
+  h2 {
+    font-weight: bold;
+    font-size: 20px;
+  }
+  p {
+    font-size: 15px;
+  }
+}
+
+#booking {
+  box-sizing: content-box;
+  width: 800px;
+  height: 280px;
+  margin-left: 160px;
+  background-color:white;
+  border:1px solid grey;
+  border-radius:10px;
+   img {
+    margin-top:42px;
+   }
+
+}

@@ -28,30 +28,37 @@
       </div>
     </div>
       <div class="col-xs-12 col-sm-5">
-        <form action="#">
-          <h4>Book this hunting property</h4>
-          <div class="form-group">
-            <div class="row">
-              <div class="col-xs-6">
-                <input type="text" class="form-control" placeholder="checkin date" id="checkin">
-              </div>
-              <div class="col-xs-6">
-                <input type="text" class="form-control" placeholder="checkout date">
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <select name="" id="hunters" class="form-control">
-               <% (1..@hunt.capacity).each do |i| %>
-               <option value=<%= i %>><%= i %></option>
-               <%end%>
-            </select>
-          </div>
-          <input type="submit" class="btn btn-primary" value="Book it" style="width: 100%">
-        </form>
+        <%= simple_form_for @booking, url: account_hunt_bookings_path(@hunt) do |f| %>
+        <%= f.input :start_date %>
+        <%= f.input :end_date %>
+        <%= f.submit "Book it", :class => "btn btn-primary" %>
+        <%end%>
       </div>
   </div>
 </div>
+
+<!-- <form action="new_user_session_path">
+  <h4>Book this hunting property</h4>
+  <div class="form-group">
+    <div class="row">
+      <div class="col-xs-6">
+        <input type="text" class="form-control" placeholder="checkin date" id="checkin">
+      </div>
+      <div class="col-xs-6">
+        <input type="text" class="form-control" placeholder="checkout date">
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <select name="" id="hunters" class="form-control">
+     <% (1..@hunt.capacity).each do |i| %>
+     <option value=<%= i %>><%= i %></option>
+     <%end%>
+   </select>
+ </div>
+ <input type="submit" class="btn btn-primary" value="Book it" style="width: 100%">
+</form>
+ -->
 
 <div id="property-description">
   <div class="container">
