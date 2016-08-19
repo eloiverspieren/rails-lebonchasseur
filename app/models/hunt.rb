@@ -9,4 +9,12 @@ class Hunt < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
 
+  def self.search(search)
+    if search
+    near(search, 100)
+    else
+    Hunt.all
+    end
+  end
+
 end

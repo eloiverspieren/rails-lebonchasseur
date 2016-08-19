@@ -1,7 +1,8 @@
 
 
 
-<div class="banner" style="background: url('https://hd.unsplash.com/photo-1430916273432-273c2db881a0');">
+<div class="banner" style="background: url('http://www.steiner-optics.com/sites/default/files/Hunting%20%E2%80%93%20Caribou%20Hunt%20%E2%80%93%20Hunter%20Scouting%20Sitting.jpg');">
+
  <%= render "shared/navbar_home" %>
       <div class="col-xs-12 col-sm-8 col-md-10">
        <div class="title">
@@ -36,7 +37,7 @@
     </div>
   </div>
 
-<div class="banner_2" style="background: url('http://www.chasse-sologne.fr/uploads/images/bois.jpg');">
+<div class="banner_2" style="background: url('https://hd.unsplash.com/photo-1430916273432-273c2db881a0');">
 </div>
 
 
@@ -48,7 +49,7 @@
     <div class="col-xs-12 col-sm-4">
       <div class="image">
         <%= cl_image_tag( hunt.photo,
-      width: 375, height: 175, crop: :fill, radius: 5) %>
+      width: 375, height: 175, crop: :fill) %>
         <div class="card-category"><%= hunt.address %></div>
         <div class="card-description">
           <h2> <%= hunt.name %></h2>

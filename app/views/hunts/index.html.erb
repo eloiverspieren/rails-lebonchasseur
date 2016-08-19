@@ -1,4 +1,6 @@
-<%= render "shared/navbar_home" %>
+
+ <%= render "shared/navbar_home" %>
+
 
 <div class="banner" style="background: url('http://referentiel.nouvelobs.com/file/14457347.jpg');">
        <div class="col-xs-12 col-sm-8 col-md-10">
@@ -11,13 +13,19 @@
 </div>
 
 
+
+<%= form_tag url_for(action: 'index', controller: 'hunts'), :method => :get do %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Go", :address => nil %>
+<% end %>
+
 <div class="container_cards">
   <div class="row">
    <% @hunts.each do |hunt| %>
     <div class="col-xs-12 col-sm-4">
       <div class="image">
         <%= cl_image_tag( hunt.photo,
-      width: 375, height: 175, crop: :fill, radius: 5) %>
+      width: 375, height: 175, crop: :fill) %>
         <div class="card-category"><%= hunt.address %></div>
         <div class="card-description">
           <h2> <%= hunt.name %></h2>
