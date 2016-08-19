@@ -4,7 +4,7 @@
     <div class="container-profile">
       <div class="relative-profile">
         <div class="avatar-profile">
-        <%= image_tag current_user.facebook_picture_url, height: 130, width: 130 %>
+        <%= image_tag current_user.facebook_picture_url, height: 130, width: 130 if current_user.facebook_picture_url != nil%>
         </div>
         <div class="avatar-infos">
           <% if @profile != nil %>

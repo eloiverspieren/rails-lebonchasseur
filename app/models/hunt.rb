@@ -2,7 +2,7 @@ class Hunt < ApplicationRecord
   belongs_to :user
   has_many :availibities
   has_many :reviews, dependent: :destroy
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
   mount_uploader :photo, PhotoUploader
 
 
