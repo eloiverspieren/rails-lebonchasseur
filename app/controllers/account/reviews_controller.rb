@@ -10,12 +10,6 @@ class Account::ReviewsController < ApplicationController
   end
 
 
-  def destroy
-    @review = review.find(params[:id])
-    @review.destroy
-    redirect_to reviews_path
-  end
-
   private
 
   def reviews_params
