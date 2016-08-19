@@ -1,13 +1,16 @@
 class HuntsController < ApplicationController
   skip_before_action :authenticate_user!
   def index
-    @hunts = Hunt.where.not(latitude: nil, longitude: nil)
+    @hunts = Hunt.search(params[:search]).where.not(latitude: nil, longitude: nil)
+
+
 
     @hash = Gmaps4rails.build_markers(@hunts) do |hunt, marker|
       marker.lat hunt.latitude
       marker.lng hunt.longitude
     end
   end
+
 
   def show
     @hunt = Hunt.find(params[:id])
