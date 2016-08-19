@@ -1,17 +1,10 @@
  <%= render "shared/navbar_home" %>
 
-<div class = "search-a-hunt">
-  <div class="row">
-    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-    <form action="/hunt" method="get">
-      <input type="text" name="q" value="">
-      <input type="submit" value="search">
-    </form>
-    <br><br><br>
-  </div>
-</div>
-</div>
 
+<%= form_tag url_for(action: 'index', controller: 'hunts'), :method => :get do %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Go", :address => nil %>
+<% end %>
 
 <div class="container_cards">
   <div class="row">
